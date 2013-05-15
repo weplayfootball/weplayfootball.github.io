@@ -28,7 +28,7 @@ $(function() {
 */
 jQuery(function($) {
     $(".show-tweets").tweet({
-        username: "anli_zaimi",
+        username: "yohany_Kim",
         page: 1,
         count: 10,
         loading_text: "loading ..."
