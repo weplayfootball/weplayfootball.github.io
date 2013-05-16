@@ -1,9 +1,18 @@
 /*
     Countdown initializer
 */
+var startD = new Date(2013,4,1).getTime();
+var targetD = new Date(2013,6,30).getTime();
+var _rem = targetD - new Date().getTime();
+var ses = Math.floor(_rem / 1000);
+
+var _tot = targetD - startD;
+
+var perc = Math.floor(((_tot - _rem) / _tot)*100);
+
 $(function() {
     var now = new Date();
-    var countTo = 15 * 24 * 60 * 60 * 1000 + now.valueOf();
+    var countTo = targetD; //40 * 24 * 60 * 60 * 1000 + now.valueOf();
     $('.timer').countdown(countTo, function(event) {
         var $this = $(this);
         switch(event.type) {
@@ -28,7 +37,7 @@ $(function() {
 */
 jQuery(function($) {
     $(".show-tweets").tweet({
-        username: "yohany_Kim",
+        username: "ikhanhur",
         page: 1,
         count: 10,
         loading_text: "loading ..."
@@ -50,8 +59,8 @@ jQuery(function($) {
 /*
     Progress bar
 */
-var percentage = $('.progress .bar').attr("data-percentage");
-$('.progress .bar').animate({width: (percentage)+'%'}, 1000);
+$('#toTargetDate').html( (perc)+' %');
+$('.progress .bar').animate({width: (perc)+'%'}, 1000);
 
 
 /*
